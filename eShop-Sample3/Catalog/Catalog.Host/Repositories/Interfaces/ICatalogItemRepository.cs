@@ -11,5 +11,5 @@ public interface ICatalogItemRepository
     Task<int?> Remove(int itemId);
     Task<CatalogItem?> GetCatalogItemByIdAsync(int id);
     Task<IEnumerable<CatalogItem>> GetCatalogItemsByBrandAsync(int brandId);
-    Task<IEnumerable<CatalogItem>> GetCatalogItemsTypeAsync(int typeId);
+    Task<IEnumerable<CatalogItem>> GetCatalogItemsByTypeAsync(int typeId);
 }

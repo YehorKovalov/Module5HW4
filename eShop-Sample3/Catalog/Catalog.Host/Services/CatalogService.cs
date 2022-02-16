@@ -1,12 +1,13 @@
 using AutoMapper;
 using Catalog.Host.Data;
 using Catalog.Host.Models.Dtos;
-using Catalog.Host.Models.Response;
 using Catalog.Host.Models.Response.BrandResponses;
 using Catalog.Host.Models.Response.ItemResponses;
 using Catalog.Host.Models.Response.TypeResponses;
 using Catalog.Host.Repositories.Interfaces;
 using Catalog.Host.Services.Interfaces;
+using Infrastructure.Services;
+using Infrastructure.Services.Interfaces;
 
 namespace Catalog.Host.Services;
 
@@ -75,7 +76,7 @@ public class CatalogService : BaseDataService<ApplicationDbContext>, ICatalogSer
     {
         return await ExecuteSafeAsync(async () =>
         {
-            var result = await _catalogItemRepository.GetCatalogItemsTypeAsync(typeId);
+            var result = await _catalogItemRepository.GetCatalogItemsByTypeAsync(typeId);
             return new SameTypeItemsResponse<CatalogItemDto>()
             {
                 Data = result.Select(s => _mapper.Map<CatalogItemDto>(s)).ToList(),
@@ -99,7 +100,7 @@ public class CatalogService : BaseDataService<ApplicationDbContext>, ICatalogSer
     {
         return await ExecuteSafeAsync(async () =>
         {
-            var result = await _catalogBrandRepository.GetBrandesAsync();
+            var result = await _catalogTypeRepository.GetTypesAsync();
             return new GetTypesResponse<CatalogTypeDto>
             {
                 Data = result.Select(b => _mapper.Map<CatalogTypeDto>(result)).ToList()

@@ -4,6 +4,8 @@ using Catalog.Host.Data.Entities;
 using Catalog.Host.Models.Requests.ItemRequests;
 using Catalog.Host.Repositories.Interfaces;
 using Catalog.Host.Services.Interfaces;
+using Infrastructure.Services;
+using Infrastructure.Services.Interfaces;
 
 namespace Catalog.Host.Services;
 

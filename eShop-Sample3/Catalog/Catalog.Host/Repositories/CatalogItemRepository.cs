@@ -3,6 +3,7 @@ using Catalog.Host.Data;
 using Catalog.Host.Data.Entities;
 using Catalog.Host.Repositories.Interfaces;
 using Catalog.Host.Services.Interfaces;
+using Infrastructure.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Host.Repositories;
@@ -74,7 +75,7 @@ public class CatalogItemRepository : ICatalogItemRepository
             .ToListAsync();
     }
 
-    public async Task<IEnumerable<CatalogItem>> GetCatalogItemsTypeAsync(int typeId)
+    public async Task<IEnumerable<CatalogItem>> GetCatalogItemsByTypeAsync(int typeId)
     {
         return await _dbContext.CatalogItems
             .Where(i => i.CatalogTypeId == typeId)
