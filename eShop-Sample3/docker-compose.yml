@@ -12,12 +12,12 @@ services:
     depends_on:
       - postgres
     ports:
-      - 5001:5000
+      - 5000:5000
   nginx:
     image: nginx
     container_name: lde.nginx
     ports:
-      - 81:80
+      - 80:80
   pgadmin4:
     image: dpage/pgadmin4
     container_name: lde.pgadmin4
@@ -27,14 +27,14 @@ services:
     depends_on:
       - postgres
     ports:
-      - 8002:80 
+      - 8001:80 
   postgres:
     image: postgres
     container_name: lde.postgres
     environment:
       POSTGRES_PASSWORD: postgres
     ports:
-      - 5434:5432
+      - 5433:5432
 networks:
   dockernet:
     external: true
