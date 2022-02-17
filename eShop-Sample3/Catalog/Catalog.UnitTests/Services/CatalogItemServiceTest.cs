@@ -11,7 +11,7 @@ public class CatalogItemServiceTest
     private readonly Mock<ICatalogItemRepository> _catalogItemRepository;
     private readonly Mock<IMapper> _mapper;
     private readonly Mock<IDbContextWrapper<ApplicationDbContext>> _dbContextWrapper;
-    private readonly Mock<ILogger<CatalogService>> _logger;
+    private readonly Mock<ILogger<CatalogItemService>> _logger;
 
     private readonly CatalogItem _testItem = new CatalogItem()
     {
@@ -28,7 +28,7 @@ public class CatalogItemServiceTest
     {
         _catalogItemRepository = new Mock<ICatalogItemRepository>();
         _dbContextWrapper = new Mock<IDbContextWrapper<ApplicationDbContext>>();
-        _logger = new Mock<ILogger<CatalogService>>();
+        _logger = new Mock<ILogger<CatalogItemService>>();
         _mapper = new Mock<IMapper>();
 
         var dbContextTransaction = new Mock<IDbContextTransaction>();
